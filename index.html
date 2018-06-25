@@ -12,20 +12,58 @@
 
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+        
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxeFzoBnmbFlp1Smup4VPUmCAcpLrWzi8&callback=initMap" async defer></script>
+        
+        <script type="text/javascript">
+            // When the window has finished loading create our google map below
+            google.maps.event.addDomListener(window, 'load', init);
+        
+            function init() {
+                // Basic options for a simple Google Map
+                // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+                var mapOptions = {
+                    // How zoomed in you want the map to start at (always required)
+                    zoom: 11,
+
+                    // The latitude and longitude to center the map (always required)
+                    center: new google.maps.LatLng(40.6700, -73.9400), // New York
+
+                    // How you would like to style the map. 
+                    // This is where you would paste any style found on Snazzy Maps.
+                    styles: [{"featureType":"administrative","elementType":"all","stylers":[{"saturation":"-100"}]},{"featureType":"administrative.province","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"all","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","elementType":"all","stylers":[{"saturation":-100},{"lightness":"50"},{"visibility":"simplified"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":"-100"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"all","stylers":[{"lightness":"30"}]},{"featureType":"road.local","elementType":"all","stylers":[{"lightness":"40"}]},{"featureType":"transit","elementType":"all","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]},{"featureType":"water","elementType":"labels","stylers":[{"lightness":-25},{"saturation":-100}]}]
+                };
+
+                // Get the HTML DOM element that will contain your map 
+                // We are using a div with id="map" seen below in the <body>
+                var mapElement = document.getElementById('contact');
+
+                // Create the Google Map using our element and options defined above
+                var map = new google.maps.Map(mapElement, mapOptions);
+
+                // Let's also add a marker while we're at it
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(40.6700, -73.9400),
+                    map: map,
+                    title: 'Snazzy!'
+                });
+            }
+        </script>
     </head>
     <body>
 
-        
-          <header class="masthead dark-primary-color">
-            <div class="container">
-              <h3 class="masthead-brand">Finsch</h3>
-              <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="#">Home</a>
-                <a class="nav-link" href="#">Projects</a>
-                <a class="nav-link" href="#">Contact</a>
-              </nav>
-            </div>
-          </header>
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-0 bg-white border-bottom box-shadow">
+            <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
+            <nav class="my-2 my-md-0 mr-md-3">
+              <a class="p-2 text-dark" href="#">About</a>
+              <a class="p-2 text-dark" href="#">Skills</a>
+              <a class="p-2 text-dark" href="#">Portfolios</a>
+              <a class="p-2 text-dark" href="#">Contact</a>
+            </nav>
+            
+          </div>
+         
           <div id="main-banner">
             <div id="main-slider" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
@@ -61,15 +99,19 @@
             <h1 class="cover-heading">Finsch Belserion</h1>
             <p class="lead">I'm WordPress/Web developer.Worked on both side(front-end and back-end section) techs. I like to work with Angular base on angular-cli, used front-end framework like Bootstrap. I master on WordPress theme creation. I have a bit experience about Css pre-processing like SASS. I like to worked with PHP framework(Zend Framework, Yii2, Laravel) as well.</p>
             <p class="lead">
-              <a href="https://www.journeyofthefinch.com/" class="btn btn-lg btn-secondary">Learn more</a>
+              <a href="https://www.journeyofthefinch.com/" class="btn btn-lg btn-secondary">See more</a>
             </p>
             </div>
+            </div>
+
+            <div id="contact">
+
             </div>
           </main>
     
           <footer class="mastfoot mt-auto">
-            <div class="inner">
-              <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            <div class="inner text-center">
+              <p>Copyright © 2018 <a href="https://www.journeyofthefinch.com/">Finsch Belserion</a> All rights reserved.</p>
             </div>
           </footer>
         

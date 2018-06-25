@@ -1,2 +1,2 @@
-#main-banner{ height:650px; }
-.carousel-item{ background-size:cover; height:650px; }
+#main-banner, #main-slider{ height:650px; display:block; }
+.carousel-item{ background-size:cover!important; height:650px; }
